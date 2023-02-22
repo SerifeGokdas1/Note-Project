@@ -1,0 +1,45 @@
+﻿@model  IEnumerable<Padfolio_Dapper_.Models.Todolists>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Todolists</h5>
+        <!-- Table Variants -->
+        <br />
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col"> &nbsp @Html.DisplayNameFor(model => model.TodolistId)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.TodolistTitle)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.TodolistExplanation)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="table-primary">
+                        <th scope="row">&nbsp &nbsp @Html.DisplayFor(modelItem => item.TodolistId)</th>
+                        <td>@Html.DisplayFor(modelItem => item.TodolistTitle)</td>
+                        <td>@Html.DisplayFor(modelItem => item.TodolistExplanation)</td>
+                        <td>
+                            <button type="button" class="btn btn-light rounded-pill"> <i class="bi bi-bookmark-plus-fill"></i>&nbsp<p>&nbsp @Html.ActionLink("Edit", "TAddUpdate", new { id = item.TodolistId }) &nbsp</p></button>&nbsp&nbsp
+                            <button type="button" class="btn btn-light rounded-pill"> <i class="bi bi-bookmark-x-fill"></i>&nbsp<p>&nbsp @Html.ActionLink("Delete", "TDelete", new { id = item.TodolistId })&nbsp</p></button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <!-- End Table Variants -->
+        <br />
+        <br />
+        <div class="text-center">
+            <button type="button" class="btn btn-light rounded-pill"><i class="bi bi-journal-plus"><p>@Html.ActionLink("Create New", "TAddUpdate")</p></i></button>
+        </div>
+
+    </div>
+</div>
+
+

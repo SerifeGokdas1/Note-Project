@@ -1,0 +1,786 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PadfolioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdminInformations">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminNameSurname" Type="varchar" MaxLength="50" />
+          <Property Name="AdminPassword" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Blogs">
+          <Key>
+            <PropertyRef Name="BlogId" />
+          </Key>
+          <Property Name="BlogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BlogTitle" Type="varchar" MaxLength="50" />
+          <Property Name="BlogPost" Type="text" />
+        </EntityType>
+        <EntityType Name="Plans">
+          <Key>
+            <PropertyRef Name="PlanId" />
+          </Key>
+          <Property Name="PlanId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlanTitle" Type="varchar" MaxLength="50" />
+          <Property Name="PPrice" Type="varchar" MaxLength="50" />
+          <Property Name="PExplanation" Type="text" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Todolists">
+          <Key>
+            <PropertyRef Name="TodolistId" />
+          </Key>
+          <Property Name="TodolistId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TodolistTitle" Type="varchar" MaxLength="50" />
+          <Property Name="TodolistExplanation" Type="text" />
+        </EntityType>
+        <EntityType Name="UserInformations">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserNameSurname" Type="varchar" MaxLength="50" />
+          <Property Name="UserPassword" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserNotes">
+          <Key>
+            <PropertyRef Name="UserNoteId" />
+          </Key>
+          <Property Name="UserNoteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserNoteTitle" Type="varchar" MaxLength="50" />
+          <Property Name="UserNoteExplanation" Type="text" />
+        </EntityType>
+        <EntityType Name="WhyPadfolio">
+          <Key>
+            <PropertyRef Name="WhyId" />
+          </Key>
+          <Property Name="WhyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WhyTitle" Type="varchar" MaxLength="50" />
+          <Property Name="WhyExplanation" Type="text" />
+        </EntityType>
+        <Function Name="ADlete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AdminId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="AdminAddUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AdminId" Type="int" Mode="In" />
+          <Parameter Name="AdminNameSurname" Type="varchar" Mode="In" />
+          <Parameter Name="AdminPassword" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="AdminNoList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AdminId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ALisT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="BDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BlogId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="BList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="BlogAddUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BlogId" Type="int" Mode="In" />
+          <Parameter Name="BlogTitle" Type="varchar" Mode="In" />
+          <Parameter Name="BlogPost" Type="text" Mode="In" />
+        </Function>
+        <Function Name="BlogNoList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BlogId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="PDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PlanId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PlanAddUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PlanId" Type="int" Mode="In" />
+          <Parameter Name="PlanTitle" Type="varchar" Mode="In" />
+          <Parameter Name="PPrice" Type="varchar" Mode="In" />
+          <Parameter Name="PExplanation" Type="text" Mode="In" />
+        </Function>
+        <Function Name="PlanNoList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PlanId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="TDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TodolistId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="TList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="TodolistAddUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TodolistId" Type="int" Mode="In" />
+          <Parameter Name="TodolistTitle" Type="varchar" Mode="In" />
+          <Parameter Name="TodolistExplanation" Type="text" Mode="In" />
+        </Function>
+        <Function Name="TodoNoList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TodolistId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UserAddUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="UserNameSurname" Type="varchar" Mode="In" />
+          <Parameter Name="UserPassword" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UserInfDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UserInfList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UserNoList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UserNoteAddUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserNoteId" Type="int" Mode="In" />
+          <Parameter Name="UserNoteTitle" Type="varchar" Mode="In" />
+          <Parameter Name="UserNoteExplanation" Type="text" Mode="In" />
+        </Function>
+        <Function Name="UserNoteDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserNoteId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UserNoteList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UserNoteNoList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserNoteId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="WDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="WhyId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="WhyAddUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="WhyId" Type="int" Mode="In" />
+          <Parameter Name="WhyTitle" Type="varchar" Mode="In" />
+          <Parameter Name="WhyExplanation" Type="text" Mode="In" />
+        </Function>
+        <Function Name="WList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="WNoList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="WhyId" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="PadfolioModelStoreContainer">
+          <EntitySet Name="AdminInformations" EntityType="Self.AdminInformations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Blogs" EntityType="Self.Blogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Plans" EntityType="Self.Plans" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Todolists" EntityType="Self.Todolists" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInformations" EntityType="Self.UserInformations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserNotes" EntityType="Self.UserNotes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WhyPadfolio" EntityType="Self.WhyPadfolio" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PadfolioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AdminInformation">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminNameSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AdminPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="BlogId" />
+          </Key>
+          <Property Name="BlogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BlogTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BlogPost" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Plan">
+          <Key>
+            <PropertyRef Name="PlanId" />
+          </Key>
+          <Property Name="PlanId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlanTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PExplanation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Todolist">
+          <Key>
+            <PropertyRef Name="TodolistId" />
+          </Key>
+          <Property Name="TodolistId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TodolistTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TodolistExplanation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UserInformation">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserNameSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UserNote">
+          <Key>
+            <PropertyRef Name="UserNoteId" />
+          </Key>
+          <Property Name="UserNoteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserNoteTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserNoteExplanation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WhyPadfolio">
+          <Key>
+            <PropertyRef Name="WhyId" />
+          </Key>
+          <Property Name="WhyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WhyTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WhyExplanation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="PadfolioEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdminInformations" EntityType="Self.AdminInformation" />
+          <EntitySet Name="Blogs" EntityType="Self.Blog" />
+          <EntitySet Name="Plans" EntityType="Self.Plan" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Todolists" EntityType="Self.Todolist" />
+          <EntitySet Name="UserInformations" EntityType="Self.UserInformation" />
+          <EntitySet Name="UserNotes" EntityType="Self.UserNote" />
+          <EntitySet Name="WhyPadfolios" EntityType="Self.WhyPadfolio" />
+          <FunctionImport Name="AAU">
+            <Parameter Name="AdminId" Mode="In" Type="Int32" />
+            <Parameter Name="AdminNameSurname" Mode="In" Type="String" />
+            <Parameter Name="AdminPassword" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ADlete">
+          <Parameter Name="AdminId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="AdminNoList" ReturnType="Collection(PadfolioModel.AdminNoList_Result)">
+          <Parameter Name="AdminId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ALisT" ReturnType="Collection(PadfolioModel.ALisT_Result)" />
+          <FunctionImport Name="BAU">
+            <Parameter Name="BlogId" Mode="In" Type="Int32" />
+            <Parameter Name="BlogTitle" Mode="In" Type="String" />
+            <Parameter Name="BlogPost" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="BDelete">
+          <Parameter Name="BlogId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="BList" ReturnType="Collection(PadfolioModel.BList_Result)" />
+          <FunctionImport Name="BlogNoList" ReturnType="Collection(PadfolioModel.BlogNoList_Result)">
+          <Parameter Name="BlogId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PAU">
+            <Parameter Name="PlanId" Mode="In" Type="Int32" />
+            <Parameter Name="PlanTitle" Mode="In" Type="String" />
+            <Parameter Name="PPrice" Mode="In" Type="String" />
+            <Parameter Name="PExplanation" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PDelete">
+          <Parameter Name="PlanId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PlanNoList" ReturnType="Collection(PadfolioModel.PlanNoList_Result)">
+          <Parameter Name="PlanId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PList" ReturnType="Collection(PadfolioModel.PList_Result)" />
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(PadfolioModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(PadfolioModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="TAU">
+            <Parameter Name="TodolistId" Mode="In" Type="Int32" />
+            <Parameter Name="TodolistTitle" Mode="In" Type="String" />
+            <Parameter Name="TodolistExplanation" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TDelete">
+          <Parameter Name="TodolistId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="TList" ReturnType="Collection(PadfolioModel.TList_Result)" />
+          <FunctionImport Name="TodoNoList" ReturnType="Collection(PadfolioModel.TodoNoList_Result)">
+          <Parameter Name="TodolistId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UserInfAU">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="UserNameSurname" Mode="In" Type="String" />
+            <Parameter Name="UserPassword" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UserInfDelete">
+          <Parameter Name="UserId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UserInfList" ReturnType="Collection(PadfolioModel.UserInfList_Result)" />
+          <FunctionImport Name="UserNoList" ReturnType="Collection(PadfolioModel.UserNoList_Result)">
+          <Parameter Name="UserId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UserNoteAU">
+            <Parameter Name="UserNoteId" Mode="In" Type="Int32" />
+            <Parameter Name="UserNoteTitle" Mode="In" Type="String" />
+            <Parameter Name="UserNoteExplanation" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UserNoteDelete">
+          <Parameter Name="UserNoteId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UserNoteList" ReturnType="Collection(PadfolioModel.UserNoteList_Result)" />
+          <FunctionImport Name="UserNoteNoList" ReturnType="Collection(PadfolioModel.UserNoteNoList_Result)">
+          <Parameter Name="UserNoteId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="WAU">
+            <Parameter Name="WhyId" Mode="In" Type="Int32" />
+            <Parameter Name="WhyTitle" Mode="In" Type="String" />
+            <Parameter Name="WhyExplanation" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="WDelete">
+          <Parameter Name="WhyId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="WList" ReturnType="Collection(PadfolioModel.WList_Result)" />
+          <FunctionImport Name="WNoList" ReturnType="Collection(PadfolioModel.WNoList_Result)">
+          <Parameter Name="WhyId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="AdminAddUpdate">
+            <Parameter Name="AdminId" Mode="In" Type="Int32" />
+            <Parameter Name="AdminNameSurname" Mode="In" Type="String" />
+            <Parameter Name="AdminPassword" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="BlogAddUpdate">
+            <Parameter Name="BlogId" Mode="In" Type="Int32" />
+            <Parameter Name="BlogTitle" Mode="In" Type="String" />
+            <Parameter Name="BlogPost" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PlanAddUpdate">
+            <Parameter Name="PlanId" Mode="In" Type="Int32" />
+            <Parameter Name="PlanTitle" Mode="In" Type="String" />
+            <Parameter Name="PPrice" Mode="In" Type="String" />
+            <Parameter Name="PExplanation" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TodolistAddUpdate">
+            <Parameter Name="TodolistId" Mode="In" Type="Int32" />
+            <Parameter Name="TodolistTitle" Mode="In" Type="String" />
+            <Parameter Name="TodolistExplanation" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UserAddUpdate">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="UserNameSurname" Mode="In" Type="String" />
+            <Parameter Name="UserPassword" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UserNoteAddUpdate">
+            <Parameter Name="UserNoteId" Mode="In" Type="Int32" />
+            <Parameter Name="UserNoteTitle" Mode="In" Type="String" />
+            <Parameter Name="UserNoteExplanation" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="WhyAddUpdate">
+            <Parameter Name="WhyId" Mode="In" Type="Int32" />
+            <Parameter Name="WhyTitle" Mode="In" Type="String" />
+            <Parameter Name="WhyExplanation" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="AdminNoList_Result">
+          <Property Type="Int32" Name="AdminId" Nullable="false" />
+          <Property Type="String" Name="AdminNameSurname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AdminPassword" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="ALisT_Result">
+          <Property Type="Int32" Name="AdminId" Nullable="false" />
+          <Property Type="String" Name="AdminNameSurname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AdminPassword" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="BList_Result">
+          <Property Type="Int32" Name="BlogId" Nullable="false" />
+          <Property Type="String" Name="BlogTitle" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BlogPost" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <ComplexType Name="BlogNoList_Result">
+          <Property Type="Int32" Name="BlogId" Nullable="false" />
+          <Property Type="String" Name="BlogTitle" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BlogPost" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <ComplexType Name="PlanNoList_Result">
+          <Property Type="Int32" Name="PlanId" Nullable="false" />
+          <Property Type="String" Name="PlanTitle" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PPrice" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PExplanation" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <ComplexType Name="PList_Result">
+          <Property Type="Int32" Name="PlanId" Nullable="false" />
+          <Property Type="String" Name="PlanTitle" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PPrice" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PExplanation" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="TList_Result">
+          <Property Type="Int32" Name="TodolistId" Nullable="false" />
+          <Property Type="String" Name="TodolistTitle" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TodolistExplanation" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <ComplexType Name="TodoNoList_Result">
+          <Property Type="Int32" Name="TodolistId" Nullable="false" />
+          <Property Type="String" Name="TodolistTitle" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TodolistExplanation" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <ComplexType Name="UserInfList_Result">
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="UserNameSurname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UserPassword" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="UserNoList_Result">
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="UserNameSurname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UserPassword" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="UserNoteList_Result">
+          <Property Type="Int32" Name="UserNoteId" Nullable="false" />
+          <Property Type="String" Name="UserNoteTitle" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UserNoteExplanation" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <ComplexType Name="UserNoteNoList_Result">
+          <Property Type="Int32" Name="UserNoteId" Nullable="false" />
+          <Property Type="String" Name="UserNoteTitle" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UserNoteExplanation" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <ComplexType Name="WList_Result">
+          <Property Type="Int32" Name="WhyId" Nullable="false" />
+          <Property Type="String" Name="WhyTitle" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="WhyExplanation" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <ComplexType Name="WNoList_Result">
+          <Property Type="Int32" Name="WhyId" Nullable="false" />
+          <Property Type="String" Name="WhyTitle" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="WhyExplanation" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PadfolioModelStoreContainer" CdmEntityContainer="PadfolioEntities1">
+          <EntitySetMapping Name="AdminInformations">
+            <EntityTypeMapping TypeName="PadfolioModel.AdminInformation">
+              <MappingFragment StoreEntitySet="AdminInformations">
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="AdminNameSurname" ColumnName="AdminNameSurname" />
+                <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Blogs">
+            <EntityTypeMapping TypeName="PadfolioModel.Blog">
+              <MappingFragment StoreEntitySet="Blogs">
+                <ScalarProperty Name="BlogId" ColumnName="BlogId" />
+                <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+                <ScalarProperty Name="BlogPost" ColumnName="BlogPost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Plans">
+            <EntityTypeMapping TypeName="PadfolioModel.Plan">
+              <MappingFragment StoreEntitySet="Plans">
+                <ScalarProperty Name="PlanId" ColumnName="PlanId" />
+                <ScalarProperty Name="PlanTitle" ColumnName="PlanTitle" />
+                <ScalarProperty Name="PPrice" ColumnName="PPrice" />
+                <ScalarProperty Name="PExplanation" ColumnName="PExplanation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="PadfolioModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Todolists">
+            <EntityTypeMapping TypeName="PadfolioModel.Todolist">
+              <MappingFragment StoreEntitySet="Todolists">
+                <ScalarProperty Name="TodolistId" ColumnName="TodolistId" />
+                <ScalarProperty Name="TodolistTitle" ColumnName="TodolistTitle" />
+                <ScalarProperty Name="TodolistExplanation" ColumnName="TodolistExplanation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInformations">
+            <EntityTypeMapping TypeName="PadfolioModel.UserInformation">
+              <MappingFragment StoreEntitySet="UserInformations">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserNameSurname" ColumnName="UserNameSurname" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserNotes">
+            <EntityTypeMapping TypeName="PadfolioModel.UserNote">
+              <MappingFragment StoreEntitySet="UserNotes">
+                <ScalarProperty Name="UserNoteId" ColumnName="UserNoteId" />
+                <ScalarProperty Name="UserNoteTitle" ColumnName="UserNoteTitle" />
+                <ScalarProperty Name="UserNoteExplanation" ColumnName="UserNoteExplanation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WhyPadfolios">
+            <EntityTypeMapping TypeName="PadfolioModel.WhyPadfolio">
+              <MappingFragment StoreEntitySet="WhyPadfolio">
+                <ScalarProperty Name="WhyId" ColumnName="WhyId" />
+                <ScalarProperty Name="WhyTitle" ColumnName="WhyTitle" />
+                <ScalarProperty Name="WhyExplanation" ColumnName="WhyExplanation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ADlete" FunctionName="PadfolioModel.Store.ADlete" />
+          <FunctionImportMapping FunctionImportName="AdminNoList" FunctionName="PadfolioModel.Store.AdminNoList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PadfolioModel.AdminNoList_Result">
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="AdminNameSurname" ColumnName="AdminNameSurname" />
+                <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ALisT" FunctionName="PadfolioModel.Store.ALisT">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PadfolioModel.ALisT_Result">
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="AdminNameSurname" ColumnName="AdminNameSurname" />
+                <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="BDelete" FunctionName="PadfolioModel.Store.BDelete" />
+          <FunctionImportMapping FunctionImportName="BList" FunctionName="PadfolioModel.Store.BList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PadfolioModel.BList_Result">
+                <ScalarProperty Name="BlogId" ColumnName="BlogId" />
+                <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+                <ScalarProperty Name="BlogPost" ColumnName="BlogPost" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="BlogNoList" FunctionName="PadfolioModel.Store.BlogNoList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PadfolioModel.BlogNoList_Result">
+                <ScalarProperty Name="BlogId" ColumnName="BlogId" />
+                <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+                <ScalarProperty Name="BlogPost" ColumnName="BlogPost" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PDelete" FunctionName="PadfolioModel.Store.PDelete" />
+          <FunctionImportMapping FunctionImportName="PlanNoList" FunctionName="PadfolioModel.Store.PlanNoList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PadfolioModel.PlanNoList_Result">
+                <ScalarProperty Name="PlanId" ColumnName="PlanId" />
+                <ScalarProperty Name="PlanTitle" ColumnName="PlanTitle" />
+                <ScalarProperty Name="PPrice" ColumnName="PPrice" />
+                <ScalarProperty Name="PExplanation" ColumnName="PExplanation" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PList" FunctionName="PadfolioModel.Store.PList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PadfolioModel.PList_Result">
+                <ScalarProperty Name="PlanId" ColumnName="PlanId" />
+                <ScalarProperty Name="PlanTitle" ColumnName="PlanTitle" />
+                <ScalarProperty Name="PPrice" ColumnName="PPrice" />
+                <ScalarProperty Name="PExplanation" ColumnName="PExplanation" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="PadfolioModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="PadfolioModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="PadfolioModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="PadfolioModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PadfolioModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="PadfolioModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PadfolioModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="PadfolioModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="PadfolioModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="TDelete" FunctionName="PadfolioModel.Store.TDelete" />
+          <FunctionImportMapping FunctionImportName="TList" FunctionName="PadfolioModel.Store.TList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PadfolioModel.TList_Result">
+                <ScalarProperty Name="TodolistId" ColumnName="TodolistId" />
+                <ScalarProperty Name="TodolistTitle" ColumnName="TodolistTitle" />
+                <ScalarProperty Name="TodolistExplanation" ColumnName="TodolistExplanation" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TodoNoList" FunctionName="PadfolioModel.Store.TodoNoList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PadfolioModel.TodoNoList_Result">
+                <ScalarProperty Name="TodolistId" ColumnName="TodolistId" />
+                <ScalarProperty Name="TodolistTitle" ColumnName="TodolistTitle" />
+                <ScalarProperty Name="TodolistExplanation" ColumnName="TodolistExplanation" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UserInfDelete" FunctionName="PadfolioModel.Store.UserInfDelete" />
+          <FunctionImportMapping FunctionImportName="UserInfList" FunctionName="PadfolioModel.Store.UserInfList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PadfolioModel.UserInfList_Result">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserNameSurname" ColumnName="UserNameSurname" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UserNoList" FunctionName="PadfolioModel.Store.UserNoList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PadfolioModel.UserNoList_Result">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserNameSurname" ColumnName="UserNameSurname" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UserNoteDelete" FunctionName="PadfolioModel.Store.UserNoteDelete" />
+          <FunctionImportMapping FunctionImportName="UserNoteList" FunctionName="PadfolioModel.Store.UserNoteList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PadfolioModel.UserNoteList_Result">
+                <ScalarProperty Name="UserNoteId" ColumnName="UserNoteId" />
+                <ScalarProperty Name="UserNoteTitle" ColumnName="UserNoteTitle" />
+                <ScalarProperty Name="UserNoteExplanation" ColumnName="UserNoteExplanation" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UserNoteNoList" FunctionName="PadfolioModel.Store.UserNoteNoList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PadfolioModel.UserNoteNoList_Result">
+                <ScalarProperty Name="UserNoteId" ColumnName="UserNoteId" />
+                <ScalarProperty Name="UserNoteTitle" ColumnName="UserNoteTitle" />
+                <ScalarProperty Name="UserNoteExplanation" ColumnName="UserNoteExplanation" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WDelete" FunctionName="PadfolioModel.Store.WDelete" />
+          <FunctionImportMapping FunctionImportName="WList" FunctionName="PadfolioModel.Store.WList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PadfolioModel.WList_Result">
+                <ScalarProperty Name="WhyId" ColumnName="WhyId" />
+                <ScalarProperty Name="WhyTitle" ColumnName="WhyTitle" />
+                <ScalarProperty Name="WhyExplanation" ColumnName="WhyExplanation" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WNoList" FunctionName="PadfolioModel.Store.WNoList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PadfolioModel.WNoList_Result">
+                <ScalarProperty Name="WhyId" ColumnName="WhyId" />
+                <ScalarProperty Name="WhyTitle" ColumnName="WhyTitle" />
+                <ScalarProperty Name="WhyExplanation" ColumnName="WhyExplanation" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="AdminAddUpdate" FunctionName="PadfolioModel.Store.AdminAddUpdate" />
+          <FunctionImportMapping FunctionImportName="BlogAddUpdate" FunctionName="PadfolioModel.Store.BlogAddUpdate" />
+          <FunctionImportMapping FunctionImportName="PlanAddUpdate" FunctionName="PadfolioModel.Store.PlanAddUpdate" />
+          <FunctionImportMapping FunctionImportName="TodolistAddUpdate" FunctionName="PadfolioModel.Store.TodolistAddUpdate" />
+          <FunctionImportMapping FunctionImportName="UserAddUpdate" FunctionName="PadfolioModel.Store.UserAddUpdate" />
+          <FunctionImportMapping FunctionImportName="UserNoteAddUpdate" FunctionName="PadfolioModel.Store.UserNoteAddUpdate" />
+          <FunctionImportMapping FunctionImportName="WhyAddUpdate" FunctionName="PadfolioModel.Store.WhyAddUpdate" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

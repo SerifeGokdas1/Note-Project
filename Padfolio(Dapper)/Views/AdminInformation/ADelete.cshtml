@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Padfolio_Dapper_.Models.AdminInformations>
+@{
+    ViewBag.Title = "ADelete";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Blogs</h5>
+        <!-- Table Variants -->
+        <button type="button" class="btn btn-success"><p>@Html.ActionLink("Create New", "AAddUpdate")</p></button>
+        <br />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">@Html.DisplayNameFor(model => model.AdminId)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.AdminNameSurname)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.AdminPassword)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="table-info">
+                        <th scope="row"> @Html.DisplayFor(modelItem => item.AdminId)</th>
+                        <td>@Html.DisplayFor(modelItem => item.AdminNameSurname)</td>
+                        <td>@Html.DisplayFor(modelItem => item.AdminPassword)</td>
+                        <td>
+                            <button type="submit" class="btn btn-primary">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <div class="text-center">
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        </table>
+        <!-- End Table Variants -->
+
+    </div>
+</div>
+

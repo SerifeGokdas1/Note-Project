@@ -1,0 +1,43 @@
+﻿@model  IEnumerable<Padfolio_Dapper_.Models.UserNotes>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageUser.cshtml";
+}
+
+
+<section id="features" class="padd-section text-center">
+
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title text-center">
+            <h2>Your Notes</h2>
+            <div class="text-center">
+                <button type="button" class="btn btn-light rounded-pill"><i class="bi bi-journal-plus"><p>@Html.ActionLink("Create New", "UAddUpdate")</p></i></button>
+            </div>
+        </div>
+        <br /><br />
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-block">
+                        <img src="~/UserTemplate/assets/img/blog.jpg" alt="img">
+                        <h4>@Html.DisplayFor(modelItem => item.UserNoteTitle)</h4>
+                        <p>@Html.DisplayFor(modelItem => item.UserNoteExplanation)</p>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-success"><i class="bi bi-bookmark-plus-fill"><p>@Html.ActionLink("Edit", "UAddUpdate", new { id = item.UserNoteId })</p></i></button>
+                        </div>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-success"><i class="bi bi-bookmark-x-fill"><p>@Html.ActionLink("Delete", "UDelete", new { id = item.UserNoteId })</p></i></button>
+                        </div>
+                        @*<p><button type="button" class="btn btn-light rounded-pill"> <i class="bi bi-bookmark-plus-fill"></i>&nbsp<p>&nbsp @Html.ActionLink("Edit", "UAddUpdate", new { id = item.WhyId }) &nbsp</p></button>&nbsp&nbsp</p>
+                        <p><button type="button" class="btn btn-light rounded-pill"> <i class="bi bi-bookmark-x-fill"></i>&nbsp<p>&nbsp @Html.ActionLink("Delete", "UDelete", new { id = item.WhyId })&nbsp</p></button></p>*@
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section><!-- End Features Section -->

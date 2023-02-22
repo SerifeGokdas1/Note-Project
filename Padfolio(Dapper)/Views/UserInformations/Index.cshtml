@@ -1,0 +1,44 @@
+﻿@model  IEnumerable<Padfolio_Dapper_.Models.UserInformations>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageUser.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">User Informations</h5>
+        <!-- Table Variants -->
+        <br />
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col"> &nbsp @Html.DisplayNameFor(model => model.UserId)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.UserNameSurname)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.UserPassword)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="table-primary">
+                        <th scope="row">&nbsp &nbsp @Html.DisplayFor(modelItem => item.UserId)</th>
+                        <td>@Html.DisplayFor(modelItem => item.UserNameSurname)</td>
+                        <td>@Html.DisplayFor(modelItem => item.UserPassword)</td>
+                        <td>
+                            <button type="button" class="btn btn-light rounded-pill"> <i class="bi bi-bookmark-plus-fill"></i>&nbsp<p>&nbsp @Html.ActionLink("Edit", "UAddUpdate", new { id = item.UserId }) &nbsp</p></button>&nbsp&nbsp
+                            <button type="button" class="btn btn-light rounded-pill"> <i class="bi bi-bookmark-x-fill"></i>&nbsp<p>&nbsp @Html.ActionLink("Delete", "UDelete", new { id = item.UserId })&nbsp</p></button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <!-- End Table Variants -->
+        <br />
+        <br />
+        <div class="text-center">
+            <button type="button" class="btn btn-light rounded-pill"><i class="bi bi-journal-plus"><p>@Html.ActionLink("Create New", "UAddUpdate")</p></i></button>
+        </div>
+
+    </div>
+</div>
+

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Padfolio_Dapper_.Models.WhyPadfolios>
+@{
+    ViewBag.Title = "WDelete";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Blogs</h5>
+        <!-- Table Variants -->
+        <button type="button" class="btn btn-success"><p>@Html.ActionLink("Create New", "WAddUpdate")</p></button>
+        <br />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">@Html.DisplayNameFor(model => model.WhyId)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.WhyTitle)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.WhyExplanation)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="table-info">
+                        <th scope="row"> @Html.DisplayFor(modelItem => item.WhyId)</th>
+                        <td>@Html.DisplayFor(modelItem => item.WhyTitle)</td>
+                        <td>@Html.DisplayFor(modelItem => item.WhyExplanation)</td>
+                        <td>
+                            <button type="submit" class="btn btn-primary">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <div class="text-center">
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        </table>
+        <!-- End Table Variants -->
+
+    </div>
+</div>
+

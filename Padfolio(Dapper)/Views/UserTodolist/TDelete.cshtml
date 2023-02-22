@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Padfolio_Dapper_.Models.Todolists>
+@{
+    ViewBag.Title = "TDelete";
+    Layout = "~/Views/Shared/_LayoutPageUser.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Todolists</h5>
+        <!-- Table Variants -->
+        <button type="button" class="btn btn-success"><p>@Html.ActionLink("Create New", "TAddUpdate")</p></button>
+        <br />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">@Html.DisplayNameFor(model => model.TodolistId)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.TodolistTitle)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.TodolistExplanation)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="table-info">
+                        <th scope="row"> @Html.DisplayFor(modelItem => item.TodolistId)</th>
+                        <td>@Html.DisplayFor(modelItem => item.TodolistTitle)</td>
+                        <td>@Html.DisplayFor(modelItem => item.TodolistExplanation)</td>
+                        <td>
+                            <button type="submit" class="btn btn-primary">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <div class="text-center">
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        </table>
+        <!-- End Table Variants -->
+
+    </div>
+</div>
+

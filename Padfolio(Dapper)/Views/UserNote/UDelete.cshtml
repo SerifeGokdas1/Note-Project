@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Padfolio_Dapper_.Models.UserNotes>
+@{
+    ViewBag.Title = "UDelete";
+    Layout = "~/Views/Shared/_LayoutPageUser.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">User Notes</h5>
+        <!-- Table Variants -->
+        <button type="button" class="btn btn-success"><p>@Html.ActionLink("Create New", "UAddUpdate")</p></button>
+        <br />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">@Html.DisplayNameFor(model => model.UserNoteId)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.UserNoteTitle)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.UserNoteExplanation)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="table-info">
+                        <th scope="row"> @Html.DisplayFor(modelItem => item.UserNoteId)</th>
+                        <td>@Html.DisplayFor(modelItem => item.UserNoteTitle)</td>
+                        <td>@Html.DisplayFor(modelItem => item.UserNoteExplanation)</td>
+                        <td>
+                            <button type="submit" class="btn btn-primary">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <div class="text-center">
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        </table>
+        <!-- End Table Variants -->
+
+    </div>
+</div>
+
+

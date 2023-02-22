@@ -1,0 +1,33 @@
+﻿@model  IEnumerable<Padfolio_Dapper_.Models.Blogs>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageUser.cshtml";
+}
+
+<!-- ======= Features Section ======= -->
+<section id="features" class="padd-section text-center">
+
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title text-center">
+            <h2>Amazing Blog Posts</h2>
+            <p class="separator">If you take the time to read the blog posts, I'm sure you'll like it a lot.</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+
+           
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-block">
+                        <img src="~/UserTemplate/assets/img/blog.jpg" alt="img">
+                        <h4>@Html.DisplayFor(modelItem => item.BlogTitle)</h4>
+                        <p>@Html.DisplayFor(modelItem => item.BlogPost)</p>
+                    </div>
+                </div>
+            }
+            
+        </div>
+    </div>
+</section><!-- End Features Section -->

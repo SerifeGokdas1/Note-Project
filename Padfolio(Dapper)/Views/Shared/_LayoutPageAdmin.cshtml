@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Padfolio Admin Panel</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="~/Admin Template/assets/img/favicon.png" rel="icon">
+    <link href="~/Admin Template/assets/img/padfoliologo.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/Admin Template/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Admin Template/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/Admin Template/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/Admin Template/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="~/Admin Template/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="~/Admin Template/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="~/Admin Template/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/Admin Template/assets/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: NiceAdmin - v2.4.1
+    * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+
+        <div class="d-flex align-items-center justify-content-between">
+            <a href="~/Views/Admin/Index.cshtml" class="logo d-flex align-items-center">
+                <img src="~/Admin Template/assets/img/padfoliologo.png" alt="">
+
+                <span class="d-none d-lg-block">Padfolio</span>
+            </a>
+            <i class="bi bi-list toggle-sidebar-btn"></i>
+        </div>
+        <!-- End Logo
+
+    <div class="search-bar">
+        <form class="search-form d-flex align-items-center" method="POST" action="#">
+            <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+            <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+        </form>
+    </div><!-- End Search Bar
+
+    <nav class="header-nav ms-auto">
+        <ul class="d-flex align-items-center">
+
+            <li class="nav-item d-block d-lg-none">
+                <a class="nav-link nav-icon search-bar-toggle " href="~/Admin Template/">
+                    <i class="bi bi-search"></i>
+                </a>
+            </li><!-- End Search Icon-->
+        <!-- End Messages Nav -->
+        <nav class="header-nav ms-auto">
+
+            <li class="nav-item dropdown pe-3">
+
+                <a class="nav-link nav-profile d-flex align-items-center pe-0"  data-bs-toggle="dropdown">
+                    <img src="~/Admin Template/assets/img/serife.jpg" alt="Profile" class="rounded-circle">
+                    <span class="d-none d-md-block dropdown-toggle ps-2">Şerife Gökdaş</span>
+                </a><!-- End Profile Iamge Icon -->
+
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" style=" text-align: right;">
+                    <li class="dropdown-header">
+                        <h6>Şerife Gökdaş</h6>
+                        <span>Web Developer</span>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" @Html.ActionLink("My Profile", "Index", "AdminInformation")
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" @Html.ActionLink("Account Setting", "Index", "AdminInformation")                            
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" @Html.ActionLink("Sign Out", "Index", "Home")
+                        </a>
+                    </li>
+
+                </ul><!-- End Profile Dropdown Items -->
+            </li><!-- End Profile Nav -->
+            </ul>
+        </nav><!-- End Icons Navigation -->
+
+    </header><!-- End Header -->
+    <!-- ======= Sidebar ======= -->
+    <aside id="sidebar" class="sidebar">
+
+        <ul class="sidebar-nav" id="sidebar-nav">
+
+            <li class="nav-item">
+                <a class="nav-link ">
+                    <i class="bi bi-grid"></i>
+                    <span></span>
+                </a>
+            </li><!-- End Dashboard Nav -->
+
+            <li class="nav-item">
+               
+                <a class="nav-link collapsed" @Html.ActionLink("Why Padfolio?", "Index", "AdminWhy") 
+                    
+                </a>
+            </li><!-- End Register Page Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" @Html.ActionLink("Plans", "Index", "AdminPlan")
+                    </a>
+            </li><!-- End Register Page Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse">
+                    <i class="bi bi-layout-text-window-reverse"></i><span>Blogs</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>@Html.ActionLink("Blogs", "Index", "AdminBlog")</li>
+                    <li>@Html.ActionLink("Blog Edit", "Index", "AdminBlog")</li>
+                    <li>@Html.ActionLink("Blog Delete", "Index", "AdminBlog")</li>
+                </ul>
+            </li><!-- End Blogs Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" @Html.ActionLink("User Informations", "Index", "AdminUserInformation")
+                    </a>
+            </li><!-- End Register Page Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" @Html.ActionLink("User Notes", "Index", "AdminUserNotes")
+                    </a>
+            </li><!-- End Register Page Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" @Html.ActionLink("User To-Do List", "Index", "AdminUserTodolist")
+                    </a>
+            </li><!-- End Register Page Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" @Html.ActionLink("Admin Informations", "Index", "AdminInformation")
+                    </a>
+            </li><!-- End Register Page Nav -->
+
+            <li class="nav-heading">Pages</li>
+
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" @Html.ActionLink("Login", "Login", "AdminLogin")
+                    </a>
+            </li><!-- End Login Page Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" @Html.ActionLink("Logout", "Index", "Home")
+                    </a>
+            </li><!-- End Logout Page Nav -->
+
+        </ul>
+
+    </aside><!-- End Sidebar-->
+    <main id="main" class="main">
+
+
+        <section class="section dashboard">
+            <div class="row">
+                <div>
+                    @RenderBody()
+                </div>
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Padfolio</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+            Designed by Şerife Gökdaş</a>
+        </div>
+    </footer><!-- End Footer -->
+
+    <a href="~/Admin Template/" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <i class="bi bi-arrow-up-short"></i>
+
+    <!-- Vendor JS Files -->
+    <script src="~/Admin Template/assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="~/Admin Template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Admin Template/assets/vendor/chart.js/chart.min.js"></script>
+    <script src="~/Admin Template/assets/vendor/echarts/echarts.min.js"></script>
+    <script src="~/Admin Template/assets/vendor/quill/quill.min.js"></script>
+    <script src="~/Admin Template/assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="~/Admin Template/assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="~/Admin Template/assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/Admin Template/assets/js/main.js"></script>
+
+</body>
+</html>

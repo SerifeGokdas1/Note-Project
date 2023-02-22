@@ -1,0 +1,44 @@
+﻿@model  IEnumerable<Padfolio_Dapper_.Models.WhyPadfolios>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Why Padfolio?</h5>
+        <!-- Table Variants -->
+        <br />
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col"> &nbsp @Html.DisplayNameFor(model => model.WhyId)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.WhyTitle)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.WhyExplanation)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="table-primary">
+                        <th scope="row">&nbsp &nbsp @Html.DisplayFor(modelItem => item.WhyId)</th>
+                        <td>@Html.DisplayFor(modelItem => item.WhyTitle)</td>
+                        <td>@Html.DisplayFor(modelItem => item.WhyExplanation)</td>
+                        <td>
+                            <button type="button" class="btn btn-light rounded-pill"> <i class="bi bi-bookmark-plus-fill"></i>&nbsp<p>&nbsp @Html.ActionLink("Edit", "WAddUpdate", new { id = item.WhyId }) &nbsp</p></button>&nbsp&nbsp
+                            <button type="button" class="btn btn-light rounded-pill"> <i class="bi bi-bookmark-x-fill"></i>&nbsp<p>&nbsp @Html.ActionLink("Delete", "WDelete", new { id = item.WhyId })&nbsp</p></button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <!-- End Table Variants -->
+        <br />
+        <br />
+        <div class="text-center">
+            <button type="button" class="btn btn-light rounded-pill"><i class="bi bi-journal-plus"><p>@Html.ActionLink("Create New", "WAddUpdate")</p></i></button>
+        </div>
+
+    </div>
+</div>
+

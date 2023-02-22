@@ -1,0 +1,44 @@
+﻿@model  IEnumerable<Padfolio_Dapper_.Models.Blogs>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Blogs</h5>
+        <!-- Table Variants -->
+        <br />
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col"> &nbsp @Html.DisplayNameFor(model => model.BlogId)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.BlogTitle)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.BlogPost)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="table-primary">
+                        <th scope="row">&nbsp &nbsp @Html.DisplayFor(modelItem => item.BlogId)</th>
+                        <td>@Html.DisplayFor(modelItem => item.BlogTitle)</td>
+                        <td>@Html.DisplayFor(modelItem => item.BlogPost)</td>
+                        <td>
+                            <button type="button" class="btn btn-light rounded-pill"> <i class="bi bi-bookmark-plus-fill"></i>&nbsp<p>&nbsp @Html.ActionLink("Edit", "BAddUpdate", new { id = item.BlogId }) &nbsp</p></button>&nbsp&nbsp
+                            <button type="button" class="btn btn-light rounded-pill"> <i class="bi bi-bookmark-x-fill"></i>&nbsp<p>&nbsp @Html.ActionLink("Delete", "BDelete", new { id = item.BlogId })&nbsp</p></button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <!-- End Table Variants -->
+        <br />
+        <br />
+        <div class="text-center">
+            <button type="button" class="btn btn-light rounded-pill"><i class="bi bi-journal-plus"><p>@Html.ActionLink("Create New", "BAddUpdate")</p></i></button>
+        </div>
+
+    </div>
+</div>
+

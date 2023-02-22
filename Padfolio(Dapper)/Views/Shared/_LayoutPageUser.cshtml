@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Padfolio</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="~/UserTemplate/assets/img/logo.jpg" rel="icon">
+    <link href="~/UserTemplate/assets/img/logo.jpg" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/UserTemplate/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/UserTemplate/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/UserTemplate/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/UserTemplate/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/UserTemplate/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/UserTemplate/assets/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: eStartup - v4.9.1
+    * Template URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+
+            <div id="logo">
+                <h1><a>Padfolio</a></h1>
+            </div>
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li>@Html.ActionLink("Home Page", "Index", "User")</li>
+                    <li>@Html.ActionLink("Why Padfolio?", "Index", "UserAdminWhy")</li>
+                    <li>@Html.ActionLink("Blogs", "Index", "UserAdminBlog")</li>
+                    <li>@Html.ActionLink("Plans", "Index", "UserAdminPlan")</li>
+                    <li>@Html.ActionLink("User Notes", "Index", "UserNote")</li>
+                    <li>@Html.ActionLink("User To-Do List", "Index", "UserTodolist")</li>
+                    <li><a class="nav-link scrollto" href="~/UserTemplate/#contact">Contact</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
+        </div>
+    </header><!-- End Header -->
+
+    <div>
+        @RenderBody()
+    </div>
+    <!-- ======= Footer ======= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <div class="col-md-12 col-lg-4">
+                    <div class="footer-logo">
+
+                        <a class="navbar-brand">Padfolio</a>
+                        <p>Padfolio is an easy-to-use tool to organize your ideas and projects into visual boards.</p>
+
+                    </div>
+                </div>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <div class="col-sm-6 col-md-3 col-lg-2">
+                    <div class="list-menu">
+
+                        <h4>Pages</h4>
+
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-arrow-right-circle-fill">@Html.ActionLink("Why Padfolio?", "Index", "UserAdminWhy")</i></li>
+                            <li><i class="bi bi-arrow-right-circle-fill">@Html.ActionLink("Blogs", "Index", "UserAdminBlog")</i></li>
+                            <li><i class="bi bi-arrow-right-circle-fill">@Html.ActionLink("Plans", "Index", "UserAdminPlan")</i></li>
+                            <li><i class="bi bi-arrow-right-circle-fill">@Html.ActionLink("User Notes", "Index", "UserNote")</i></li>
+                            <li><i class="bi bi-arrow-right-circle-fill">@Html.ActionLink("User To-Do List", "Index", "UserTodolist")</i></li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+
+        <div class="copyrights">
+            <div class="container">
+                <p>&copy; Copyrights Padfolio. All rights reserved.</p>
+                <div class="credits">
+                    <!--
+                      All the links in the footer should remain intact.
+                      You can delete the links only if you purchased the pro version.
+                      Licensing information: https://bootstrapmade.com/license/
+                      Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=eStartup
+                    -->
+                    Designed by Şerife GÖKDAŞ.</a>
+                </div>
+            </div>
+        </div>
+
+    </footer><!-- End  Footer -->
+
+    <!-- Vendor JS Files -->
+    <script src="~/UserTemplate/assets/vendor/aos/aos.js"></script>
+    <script src="~/UserTemplate/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/UserTemplate/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/UserTemplate/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="~/UserTemplate/assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/UserTemplate/assets/js/main.js"></script>
+
+</body>
+
+</html>
