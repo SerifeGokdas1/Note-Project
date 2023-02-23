@@ -6,11 +6,18 @@
 ) videoya ulaşabilirsiniz.
 
 ### Projede Oluşturulan Tablolar, Diyagram ve Store Prosedürler
-- Diyagram ve Tablolar (Tablolar arasında bir ilişki bulunmadığı için bağlantı oluşturulmamıştır.)
+- Diyagram ve Tablolar 
+######Tablolar arasında bir ilişki bulunmadığı için bağlantı oluşturulmamıştır.
+
 ![Diagram ve Tablolar](https://user-images.githubusercontent.com/117410162/220938977-5545a75d-681c-4c53-85d9-363c2504d4ce.jpg)
 
 - Store Prosedürler
 ###### Silme ve listeleme için oluşturduğum saklı yordamlar
+
 ![Note-Project-StoreProsedure1](https://user-images.githubusercontent.com/117410162/220939321-5a26c220-3e58-4821-b1a5-7a81280c7196.jpg)
+
 ###### Ekleme ve güncellemeyi bir arada oluşturduğum saklı yordam
+
 ![Note-Project-StoreProsedure2](https://user-images.githubusercontent.com/117410162/220939404-a20c3c9f-6622-4016-b769-043a5f442166.jpg)
+
+
