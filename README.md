@@ -6,8 +6,8 @@
 ) videoya ulaşabilirsiniz.
 
 ### Projede Oluşturulan Tablolar, Diyagram ve Store Prosedürler
-- Diyagram ve Tablolar 
-######Tablolar arasında bir ilişki bulunmadığı için bağlantı oluşturulmamıştır.
+- Diyagram ve Tablolar
+###### Tablolar arasında bir ilişki bulunmadığı için bağlantı oluşturulmamıştır.
 
 ![Diagram ve Tablolar](https://user-images.githubusercontent.com/117410162/220938977-5545a75d-681c-4c53-85d9-363c2504d4ce.jpg)
 
