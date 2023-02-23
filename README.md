@@ -20,4 +20,34 @@
 
 ![Note-Project-StoreProsedure2](https://user-images.githubusercontent.com/117410162/220939404-a20c3c9f-6622-4016-b769-043a5f442166.jpg)
 
+### Projenin Kod Kısımları
+
+#### Models klasörünün içinde her tablo için class oluşturdum ve içerisine tablonun propertylerini yazdım.
+
+![Models](https://user-images.githubusercontent.com/117410162/220947377-cf6af951-ee5b-4650-b0e8-bb39435de615.jpg)
+
+#### Models klasörünün içinde DP adında bir class oluşturdum ve burada SQL ile bağlantılarımı gerçekleştirdim.
+
+![Models-DP](https://user-images.githubusercontent.com/117410162/220947775-3ebb5a36-80d4-47e6-a405-b32d0b5fa227.jpg)
+
+#### Controller klasörünün içine her tablo için controller oluşturdum.
+
+![Controllers](https://user-images.githubusercontent.com/117410162/220947991-32ec0189-ffd8-467f-b374-9e24dae6b803.jpg)
+
+#### Kullanıcılardan alınan istekleri controllera ileten ve projenin arayüzünü oluşturan View klasöründe, controllerda oluşturulan Index ve AddUpdatein arayüz kodları içermektedir. 
+
+###### View klasöründeki Index 
+
+![View- Index](https://user-images.githubusercontent.com/117410162/220950280-62245da3-5be4-4e4d-8049-1d934ae83072.jpg)
+
+###### View klasöründeki AddUpdate 
+
+![View- AddUpdate](https://user-images.githubusercontent.com/117410162/220950369-b523d58c-30ef-4b06-ae81-c0948879e3cd.jpg)
+
+>Projenin içinde kullanılan eklentiler ve daha detaylı anlatımı için bu [Medium bağlantısından](https://medium.com/@serifegokdaas) yazıya ulaşabilirsiniz.
+
+>*Proje hakkında soru sormak veya geri bildirimde bulunmak isterseniz serifegokdaas@gmail.com adresinden benimle iletişime geçebilirsiniz.*
+
+
+
 
