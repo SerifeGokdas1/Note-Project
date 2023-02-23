@@ -2,7 +2,7 @@
 ### Web Uygulaması 
 #### ASP.Net MVC, Dapper ve Store Prosedür ile yazılmıştır. Admin paneli ve kullanıcı paneli olmak üzere iki farklı arayüze sahiptir. Kullanıcılar admin panelinden oluşturulan hakkımızda, blog, plan vb. sayfalara ulaşabilmesinin yanında kendi notlarını ve yapılacaklar listelerini oluşturabiliyorlar. Site içerisindeki tüm bilgilerin yönetildiği admin panelinde ise yöneticiler, hakkımızda, blog, plan vb. sayfaların CRUD işlemlerini gerçekleştirmesinin yanında kullanıcıların oluşturdukları içerikleri görüntüleyebilmekte ve CRUD işlemlerini oluşturabilmektedir. 
 
-> Projenin çıktısını görmek ve detaylı incelemek isterseniz bu [Youtube bağlantısından](https://www.youtube.com/watch?v=Pox5cUKSTf8&ab_channel=Serife
+> Projenin çıktısını görmek ve detaylı incelemek isterseniz [bu Youtube bağlantısından](https://www.youtube.com/watch?v=Pox5cUKSTf8&ab_channel=Serife
 ) videoya ulaşabilirsiniz.
 
 ### Projede Oluşturulan Tablolar, Diyagram ve Store Prosedürler
@@ -44,7 +44,7 @@
 
 ![View- AddUpdate](https://user-images.githubusercontent.com/117410162/220950369-b523d58c-30ef-4b06-ae81-c0948879e3cd.jpg)
 
->Projenin içinde kullanılan eklentiler ve daha detaylı anlatım için bu [Medium bağlantısından](https://medium.com/@serifegokdaas) yazıya ulaşabilirsiniz.
+>Projenin içinde kullanılan eklentiler ve daha detaylı anlatım için [bu Medium bağlantısından](https://medium.com/@serifegokdaas) yazıya ulaşabilirsiniz.
 
 >*Proje hakkında soru sormak veya geri bildirimde bulunmak isterseniz serifegokdaas@gmail.com adresinden benimle iletişime geçebilirsiniz.*
 
