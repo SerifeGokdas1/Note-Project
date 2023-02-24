@@ -44,7 +44,7 @@
 
 ![View- AddUpdate](https://user-images.githubusercontent.com/117410162/220950369-b523d58c-30ef-4b06-ae81-c0948879e3cd.jpg)
 
->Projenin içinde kullanılan eklentiler ve daha detaylı anlatım için [bu Medium bağlantısından](https://medium.com/@serifegokdaas) yazıya ulaşabilirsiniz.
+>Projenin içinde kullanılan eklentiler ve daha detaylı anlatım için [bu Medium bağlantısından](https://medium.com/@serifegokdaas/asp-net-mvc-dapper-web-uygulamas%C4%B1-d67ce0ddb5a8) yazıya ulaşabilirsiniz.
 
 >*Proje hakkında soru sormak veya geri bildirimde bulunmak isterseniz serifegokdaas@gmail.com adresinden benimle iletişime geçebilirsiniz.*
 
